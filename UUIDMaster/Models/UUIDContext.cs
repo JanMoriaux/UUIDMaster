@@ -16,6 +16,7 @@ namespace UUIDMaster.Models
         public DbSet<EventUUIDRecord> EventRecords { get; set; }
         public DbSet<ActivityUUIDRecord> ActivityRecords { get; set; }
         public DbSet<ReservationUUIDRecord> ReservationRecords { get; set; }
+        public DbSet<InvoiceUUIDRecord> InvoiceRecords { get; set; }
 
 
 
@@ -68,6 +69,17 @@ namespace UUIDMaster.Models
 
                 entity.HasIndex(e => e.UUID).IsUnique();
                 entity.HasIndex(e => new { e.ActivityUUID, e.UserUUID }).IsUnique();
+            });
+
+            modelBuilder.Entity<InvoiceUUIDRecord>(entity =>
+            {
+                entity.ToTable("uuid_invoices");
+
+                entity.Property(e => e.UUID).IsRequired().HasColumnType("varchar(36)");
+                entity.Property(e => e.ReservationUUID).IsRequired().HasColumnType("varchar(36)");
+
+                entity.HasIndex(e => e.UUID).IsUnique();
+                entity.HasIndex(e => e.ReservationUUID).IsUnique();
             });
         }
     }

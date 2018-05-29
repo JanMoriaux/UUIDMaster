@@ -10,9 +10,10 @@ using UUIDMaster.Models;
 namespace UUIDMaster.Migrations
 {
     [DbContext(typeof(UUIDContext))]
-    partial class UUIDContextModelSnapshot : ModelSnapshot
+    [Migration("20180529170743_AdditionInvoiceUUID")]
+    partial class AdditionInvoiceUUID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using UUIDMaster.Models;
 using UUIDMaster.Models.Repository;
+using UUIDMaster.Models.Repository.Invoice;
 
 namespace UUIDMaster
 {
@@ -37,6 +38,7 @@ namespace UUIDMaster
             services.AddScoped<IEventUUIDRecordRepository, EventUUIDRecordManager>();
             services.AddScoped<IActivityUUIDRecordRepository, ActivityUUIDRecordManager>();
             services.AddScoped<IReservationUUIDRecordRepository, ReservationUUIDRecordManager>();
+            services.AddScoped<IInvoiceUUIDRecordRepository, InvoiceUUIDRecordRepository>();
 
             //swagger
             services.AddSwaggerGen(c =>
